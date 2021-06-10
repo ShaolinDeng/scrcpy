@@ -58,6 +58,33 @@ On Debian (_testing_ and _sid_ for now) and Ubuntu (20.04):
 apt install scrcpy
 ```
 
+### 另外的方式下载源码编译 Ubuntu
+
+#### 准备
+切换到 要编译版本
+
+安装依赖
+
+```
+sudo apt install  ffmpeg libsdl2-2.0-0 make gcc pkg-config meson ninja-build libavcodec-dev libavformat-dev libavutil-dev libsdl2-dev
+```
+
+#### 编译
+
+```
+ meson x --buildtype release --strip -Db_lto=true
+ ninja -Cx 
+```
+
+#### 安装
+
+```
+sudo ninja -Cx  install
+```
+
+最后直接运行 scrcpy  如果有额外要求  运行时 添加额外的参数
+
+
 A [Snap] package is available: [`scrcpy`][snap-link].
 
 [snap-link]: https://snapstats.org/snaps/scrcpy
